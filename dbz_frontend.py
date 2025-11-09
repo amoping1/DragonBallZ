@@ -14,6 +14,11 @@ root.configure(bg='orange')  # Dragon Ball Z theme color (orange like Goku's gi)
 title_label = tk.Label(root, text="DRAGONBALL Z", font=('Arial', 24, 'bold'), bg='orange', fg='black')
 title_label.pack(pady=10)
 
+# Add Goku GIF
+goku_gif = tk.PhotoImage(file='goku.gif')
+gif_label = tk.Label(root, image=goku_gif, bg='orange')
+gif_label.pack(pady=10)
+
 # Create a listbox to display the characters
 listbox = Listbox(root, bg='lightyellow', fg='black', font=('Arial', 12))
 for char in characters:
