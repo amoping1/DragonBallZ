@@ -1,3 +1,4 @@
+## Characters
 1. Son Goku
 2. Vegeta
 3. Son Gohan
