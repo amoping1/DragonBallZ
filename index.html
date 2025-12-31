@@ -14,6 +14,55 @@
         }
         figure { text-align: center; margin: 0; }
         figcaption { font-size: 0.9rem; color: #333; }
+        /* footer banner */
+        body { padding-bottom: calc(84px); }
+        .flashy-footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none; /* so it doesn't block clicks */
+            z-index: 9999;
+            -webkit-backdrop-filter: blur(4px);
+                    backdrop-filter: blur(4px);
+        }
+        .flashy-footer .label {
+            pointer-events: auto; /* label itself can be interactive if needed */
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            font-size: clamp(18px, 3.6vw, 34px);
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            mix-blend-mode: screen;
+            animation: colorShift 8s linear infinite, glow 2.5s ease-in-out infinite;
+            text-align: center;
+        }
+
+        @keyframes colorShift {
+            0%   { color: #ff3b3b; text-shadow: 0 0 8px #ff3b3b, 0 0 18px rgba(255,59,59,0.25); }
+            25%  { color: #ffb86b; text-shadow: 0 0 10px #ffb86b, 0 0 22px rgba(255,184,107,0.25); }
+            50%  { color: #6bffb8; text-shadow: 0 0 12px #6bffb8, 0 0 26px rgba(107,255,184,0.20); }
+            75%  { color: #6bb8ff; text-shadow: 0 0 10px #6bb8ff, 0 0 22px rgba(107,184,255,0.20); }
+            100% { color: #ff3b3b; text-shadow: 0 0 8px #ff3b3b, 0 0 18px rgba(255,59,59,0.25); }
+        }
+
+        @keyframes glow {
+            0%,100% { filter: drop-shadow(0 0 6px rgba(255,255,255,0.25)); }
+            50%     { filter: drop-shadow(0 0 20px rgba(255,255,255,0.6)); }
+        }
+
+        /* Respect user preference for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .flashy-footer .label { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -23,5 +72,10 @@
         <img src="goku.gif" alt="Goku" class="goku">
         <figcaption>Goku</figcaption>
     </figure>
+    <footer class="flashy-footer" role="contentinfo" aria-label="Site footer">
+        <div class="label" aria-live="polite">DRAGON BALL Z 2026</div>
+    </footer>
 </body>
 </html>
+
+
